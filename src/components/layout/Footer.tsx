@@ -1,4 +1,5 @@
 import { Mail, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
@@ -6,11 +7,10 @@ export const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-12 gap-16 mb-24">
           <div className="md:col-span-4">
-            <div className="flex items-center space-x-3 mb-10">
-              <div className="w-10 h-10 bg-brand-primary flex items-center justify-center">
-                <span className="text-white font-bold text-xl">D</span>
-              </div>
-              <span className="text-2xl font-light tracking-[0.2em] uppercase text-brand-primary">DAB <span className="font-bold text-brand-text">Proyectos</span></span>
+            <div className="flex items-center mb-10">
+              <Link to="/">
+                <img src="/logo.png" alt="DAB Proyectos" className="h-10 w-auto" />
+              </Link>
             </div>
             <p className="text-brand-text-dim text-sm leading-relaxed max-w-xs font-light">
               Estudio multidisciplinar especializado en el desarrollo de proyectos complejos de arquitectura e ingeniería.
@@ -20,10 +20,10 @@ export const Footer = () => {
           <div className="md:col-span-2">
             <h4 className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-accent mb-8">Navegación</h4>
             <ul className="space-y-4 text-[10px] font-bold uppercase tracking-widest text-brand-text-dim">
-              <li><a href="#" className="hover:text-brand-primary transition-colors">Portafolio</a></li>
-              <li><a href="#servicios" className="hover:text-brand-primary transition-colors">Servicios</a></li>
-              <li><a href="#nacional" className="hover:text-brand-primary transition-colors">Nacional</a></li>
-              <li><a href="#contacto" className="hover:text-brand-primary transition-colors">Contacto</a></li>
+              <li><Link to="/proyectos" className="hover:text-brand-primary transition-colors">Portafolio</Link></li>
+              <li><Link to="/servicios" className="hover:text-brand-primary transition-colors">Servicios</Link></li>
+              <li><Link to="/proyectos" className="hover:text-brand-primary transition-colors">Nacional</Link></li>
+              <li><Link to="/contacto" className="hover:text-brand-primary transition-colors">Contacto</Link></li>
             </ul>
           </div>
 

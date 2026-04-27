@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { NAV_LINKS } from '../../constants/navigation';
 
 export const Navbar = () => {
@@ -22,12 +23,11 @@ export const Navbar = () => {
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="flex items-center space-x-3"
+          className="flex items-center"
         >
-          <div className="w-10 h-10 bg-brand-primary flex items-center justify-center">
-            <span className="text-white font-bold text-xl">D</span>
-          </div>
-          <span className="text-2xl font-light tracking-[0.2em] uppercase text-brand-primary">DAB <span className="font-bold text-brand-text">Proyectos</span></span>
+          <Link to="/">
+            <img src="/logo.png" alt="DAB Proyectos" className="h-10 w-auto" />
+          </Link>
         </motion.div>
 
         {/* Desktop Links */}
@@ -39,16 +39,19 @@ export const Navbar = () => {
               onMouseEnter={() => link.subItems && setActiveDropdown(link.name)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <motion.a
-                href={link.href}
+              <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="text-[10px] uppercase tracking-[0.3em] font-medium hover:text-brand-accent transition-colors flex items-center gap-1"
               >
-                {link.name}
-                {link.subItems && <ChevronDown size={10} className={`transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
-              </motion.a>
+                <Link
+                  to={link.href}
+                  className="text-[10px] uppercase tracking-[0.3em] font-medium hover:text-brand-accent transition-colors flex items-center gap-1"
+                >
+                  {link.name}
+                  {link.subItems && <ChevronDown size={10} className={`transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
+                </Link>
+              </motion.div>
 
               {link.subItems && (
                 <AnimatePresence>
@@ -62,13 +65,13 @@ export const Navbar = () => {
                     >
                       <div className="flex flex-col space-y-4">
                         {link.subItems.map((sub, j) => (
-                          <a 
+                          <Link 
                             key={j}
-                            href={sub.href}
+                            to={sub.href}
                             className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-text-dim hover:text-brand-accent transition-colors"
                           >
                             {sub.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </motion.div>
@@ -100,24 +103,24 @@ export const Navbar = () => {
             <div className="flex flex-col p-6 space-y-6">
               {NAV_LINKS.map((link) => (
                 <div key={link.name} className="space-y-4">
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     onClick={() => !link.subItems && setMobileMenuOpen(false)}
                     className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-text hover:text-brand-accent transition-colors block"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                   {link.subItems && (
                     <div className="pl-4 flex flex-col space-y-4 border-l border-brand-border">
                       {link.subItems.map((sub, j) => (
-                        <a 
+                        <Link 
                           key={j}
-                          href={sub.href}
+                          to={sub.href}
                           onClick={() => setMobileMenuOpen(false)}
                           className="text-[9px] uppercase tracking-[0.2em] font-bold text-brand-text-dim hover:text-brand-accent transition-colors"
                         >
                           {sub.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}

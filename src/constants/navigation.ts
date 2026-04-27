@@ -9,27 +9,26 @@ import {
 export const NAV_LINKS = [
   { 
     name: 'Inicio', 
-    href: '#',
+    href: '/',
     subItems: [
-      { name: 'LA EMPRESA', href: '#empresa' },
-      { name: 'Clientes', href: '#' },
-      { name: 'Detalles constructivos', href: '#detalles' },
-      { name: 'Premios', href: '#premios' },
+      { name: 'LA EMPRESA', href: '/' },
+      { name: 'Nuestra Historia', href: '/' },
     ]
   },
   { 
     name: 'Líneas de negocio', 
-    href: '#servicios',
+    href: '/servicios',
     subItems: [
-      { name: 'Asesoría, consultoría y software', href: '#' },
-      { name: 'Proyectos acústicos', href: '#' },
-      { name: 'Proyectos arquitectónicos', href: '#' },
-      { name: 'Proyectos bioclimáticos', href: '#' },
-      { name: 'Proyectos térmicos', href: '#' },
-      { name: 'Suministro de materiales', href: '#' },
+      { name: 'Asesoría, consultoría y software', href: '/servicios' },
+      { name: 'Proyectos acústicos', href: '/servicios' },
+      { name: 'Proyectos arquitectónicos', href: '/servicios' },
+      { name: 'Proyectos bioclimáticos', href: '/servicios' },
+      { name: 'Proyectos térmicos', href: '/servicios' },
+      { name: 'Suministro de materiales', href: '/servicios' },
     ]
   },
-  { name: 'Contacto', href: '#contacto' },
+  { name: 'Proyectos', href: '/proyectos' },
+  { name: 'Contacto', href: '/contacto' },
 ];
 
 export const SERVICES = [
